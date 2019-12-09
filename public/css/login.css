@@ -1,0 +1,2 @@
+.login.centered{position:fixed;top:40%;transform:translateY(-40%);padding:0;margin:auto;width:100%}#login{background:#f7f7f8;height:100vh}.login-form{height:300px;box-shadow:2px 3px 5px 0 hsla(0,0%,55%,.36)}.login-form img{height:300px;-o-object-fit:cover;object-fit:cover;width:100%}body{background:#030e38}body .wrapper{height:calc(100vh - 80px)!important}
+/*# sourceMappingURL=login.css.map */

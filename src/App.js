@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 import Start from './components/start';
 import Question from './components/question';
 
 
-import {BrowserRouter as Router, Route, Link, Redirect,
-        withRouter } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Route, Link, Redirect,
+  withRouter
+} from 'react-router-dom';
 
 const App = () => {
 
@@ -75,25 +75,35 @@ const App = () => {
       ]
     }
   ]);
-  
+
   const questionById = id =>
-        questions.find(question => question.id === Number(id))
+    questions.find(question => question.id === Number(id))
 
   return (
-    <div className="App">
-      <Router>
+    <div>
+      <div className="wrapper">
+        <div className="content">
+          <Router>
+            <Route exact path="/" render={() => <Start />}></Route>
+            <nav className="navbar navbar-light bg-light">
+              <div className="container">
+                <a className="navbar-brand" href="#">Quiz Box</a>
 
-        <header className="App-header">
+                <div>
+                  <span className="timer mr-5 mr-5 font-weight-bold">0:04:52</span>
+                  <button type="button" className="btn btn-danger rounded">Restart</button>
 
-          <p>
-            
-          </p>
-          
-        </header>
-        
-        <Route exact path="/" render={()=> <Start/>}></Route>
-        <Route exact path="/question/:id" render={( {match })=> <Question question={questionById(match.params.id)}/>}></Route>
-      </Router>
+                </div>
+
+              </div>
+
+            </nav>
+
+
+            <Route exact path="/question/:id" render={({ match }) => <Question question={questionById(match.params.id)} />}></Route>
+          </Router>
+        </div>
+      </div>
     </div>
   );
 }
