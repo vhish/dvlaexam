@@ -1,1 +1,0 @@
-{"version":3,"sources":["../assets/styles/pages/inner.scss"],"names":[],"mappings":"AACA,KACI,4BAA6B,CAChC,AAID,QAEQ,qBAAsB,AACtB,kBAAoB,CACvB","file":"inner.css","sourcesContent":["\nbody{\n    background: #092547!important;\n}\n\n\n\n.list{\n    a{\n        display: inline-block;\n        margin-bottom: 30px;\n    }\n}\n\n\n"],"sourceRoot":"assets/styles/"}

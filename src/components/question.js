@@ -16,7 +16,7 @@ const Question = ({ question }) => {
                 <img src="%PUBLIC_URL%/images/avartar-03.jpg" alt="" srcset="" width="300" />
               </div>
               <div className="quiztitle">
-                <h4>{Question.content}</h4>
+                <h4>{question.content}</h4>
               </div>
               <div className="questionbody">
               <ul>

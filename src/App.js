@@ -82,9 +82,10 @@ const App = () => {
   return (
     <div>
       <div className="wrapper">
+        <Router>
         <div className="content">
-          <Router>
-            <Route exact path="/" render={() => <Start />}></Route>
+          
+           
             <nav className="navbar navbar-light bg-light">
               <div className="container">
                 <a className="navbar-brand" href="#">Quiz Box</a>
@@ -101,8 +102,9 @@ const App = () => {
 
 
             <Route exact path="/question/:id" render={({ match }) => <Question question={questionById(match.params.id)} />}></Route>
-          </Router>
+          
         </div>
+        </Router>
       </div>
     </div>
   );
