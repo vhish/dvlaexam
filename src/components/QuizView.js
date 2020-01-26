@@ -1,84 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
+import { useConnect } from "../../src/context";
+import { types } from "../../src/context/actionTypes";
 import Question from "./question";
 
-const QuizView = ({ ...props }) => {
+const QuizView = ({ questions, dispatch, ...props }) => {
   const id = props.match.params.id;
   console.log(id);
   const history = useHistory();
   const [answer, setAnswer] = useState({});
   const [question, setQuestion] = useState({});
 
-  const [questions, setQuestions] = useState([
-    {
-      content: "What is this sign called",
-      id: 1,
-      choices: [
-        {
-          content: "one1 crossing",
-          img: "zebra.png",
-          id: 1
-        },
-        {
-          content: "one2 crossing",
-          img: "zebra.png",
-          id: 2
-        },
-        {
-          content: "one3 crossing",
-          img: "zebra.png",
-          id: 3
-        }
-      ]
-    },
-    {
-      content: "Road signs are dope!",
-      id: 2,
-      choices: [
-        {
-          content: "two1 crossing",
-          img: "zebra.png",
-          id: 1
-        },
-        {
-          content: "two2 crossing",
-          img: "zebra.png",
-          id: 2
-        },
-        {
-          content: "two3 crossing",
-          img: "zebra.png",
-          id: 3
-        }
-      ]
-    },
-    {
-      content: "What is this sign called",
-      id: 3,
-      choices: [
-        {
-          content: "three1 crossing",
-          img: "zebra.png",
-          id: 1
-        },
-        {
-          content: "three2 crossing",
-          img: "zebra.png",
-          id: 2
-        },
-        {
-          content: "three4 crossing",
-          img: "zebra.png",
-          id: 3
-        }
-      ]
-    }
-  ]);
-
   const questionById = id =>
     questions.find(question => question.id === Number(id));
 
   const next = () => {
+    let obj = {
+      question: question.id,
+      answer: answer.id
+    };
+
+    dispatch({
+      type: types.SET_ANSWERS,
+      payload: obj
+    });
+
     history.push(`/question/${question.id + 1}`);
   };
 
@@ -86,6 +32,10 @@ const QuizView = ({ ...props }) => {
     setAnswer({});
     setQuestion(questionById(id));
   }, [id]);
+
+  useEffect(() => {
+    console.log("answer", answer);
+  }, [answer]);
 
   return (
     <>
@@ -146,4 +96,4 @@ const QuizView = ({ ...props }) => {
   );
 };
 
-export default QuizView;
+export default useConnect(({ questions }) => ({ questions }))(QuizView);

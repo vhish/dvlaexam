@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Start from "./components/start";
 import QuizView from "./components/QuizView";
+import Provider from "../src/context/Provider";
 
 import {
   BrowserRouter as Router,
@@ -32,4 +33,6 @@ const App = () => {
   );
 };
 
-export default App;
+const Appstate = Provider(App);
+
+export default Appstate;
