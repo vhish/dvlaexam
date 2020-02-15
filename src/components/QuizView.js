@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useConnect } from "../../src/context";
 import { types } from "../../src/context/actionTypes";
+import Timer from "./timer";
 import Question from "./question";
 
 const QuizView = ({ questions, dispatch, ...props }) => {
@@ -53,6 +54,7 @@ const QuizView = ({ questions, dispatch, ...props }) => {
           </div>
         </div>
       </nav>
+      <Timer time="2" />
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10">
