@@ -36,8 +36,8 @@ const Timer = ({ time }) => {
   return (
     <div>
       <span>
-        {minutes.toString().length >= 2 ? minutes : "0" + minutes}:
-        {seconds.toString().length >= 2 ? seconds : "0" + seconds}
+        {minutes && minutes.toString().length >= 2 ? minutes : "0" + minutes}:
+        {seconds && seconds.toString().length >= 2 ? seconds : "0" + seconds}
       </span>
     </div>
   );
